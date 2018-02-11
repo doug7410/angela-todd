@@ -21,6 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/angie', function (){
-    return view('angie');
-});
+Route::get('/angie', 'AngieController@index');
