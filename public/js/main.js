@@ -29,9 +29,7 @@ function main() {
       new WOW().init();
 
     // Header/Vision carousel slider
-      $('.carousel').carousel({
-        interval: 3000
-      });
+
 
 
     // jQuery for page scrolling feature - requires jQuery Easing plugin

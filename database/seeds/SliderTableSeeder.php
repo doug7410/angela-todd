@@ -13,8 +13,12 @@ class SliderTableSeeder extends Seeder
     public function run()
     {
         Slider::create([
-            'image' => 'img/banners/IMG_4779.jpg',
+            'image' => 'img/banners/IMG_4424.jpg',
             'order' => 1
+        ]);
+        Slider::create([
+            'image' => 'img/banners/IMG_4490.jpg',
+            'order' => 2
         ]);
     }
 }

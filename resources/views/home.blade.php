@@ -1,23 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+  <app-init :sliders="{{ json_encode($sliders->toArray()) }}"></app-init>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+  @include('partials.admin-modals')
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  @include('partials.banner')
+
+  @include('partials.vision')
+
+  @include('partials.portfolio')
 @endsection

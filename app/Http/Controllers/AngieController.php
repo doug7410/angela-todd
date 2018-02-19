@@ -13,7 +13,7 @@ class AngieController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $sliders = Slider::orderBy('order')->get();
         return view('angie', ['sliders' => $sliders]);
     }
 }

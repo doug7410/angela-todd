@@ -43,6 +43,8 @@
 
 <body>
 <div id="app">
+  <app-init :sliders="{{ json_encode($sliders->toArray()) }}"></app-init>
+
   @if(Auth::check())
     <nav class="admin-bar">
       <ul>
@@ -56,7 +58,9 @@
         <li><a href="#">Blog</a></li>
       </ul>
     </nav>
-    <modal-component></modal-component>
+    <modal heading="Edit Main Image Slider">
+      <image-form :images="sliders"></image-form>
+    </modal>
   @endif
 
   <!-- Navigation
@@ -103,78 +107,59 @@
     </div><!-- End container -->
   </nav>
 
-  <!-- Header/Homepage
+  <!-- Header/Homepage/Carousel
   ================================================== -->
-  <header id="banner" class="carousel slide zoom carousel-fade @if(Auth::check()) with-admin-bar @endif" data-ride="carousel">
-    @foreach($sliders as $slider)
-      <div class="carousel-inner"><!-- Inner wrapper for slides -->
-        <div class="item active"> <!-- First item slider -->
-        <img src="{{ $slider->image }}" alt="{{ $slider->name }}"> <!-- First item background image slider -->
-        <div class="carousel-caption overlay">
-          <div class="content">
-            <div class="text wow" data-wow-delay="0.2s">
-              <h1>Angela Todd Photography</h1>
-              <hr>
-            </div>
-          </div>
-        </div> <!-- End first item background image slider -->
-      </div> <!-- End first item slider -->
-      </div>
-    @endforeach
-
-    <!-- Controls -->
-    <a class="left carousel-control" href="#banner" role="button" data-slide="prev">
-      <img src="img/06_left.png" alt="prev-img"> <!-- Left controls -->
-    </a>
-    <a class="right carousel-control" href="#banner" role="button" data-slide="next">
-      <img src="img/05_right.png" alt="next-img"> <!-- Right controls -->
-    </a>
-  </header>
-
+<!--  <carousel :sliders="sliders" class="@if(Auth::check()) with-admin-bar @endif"></carousel>-->
+<carousel>
+  <div class="slide"
+       v-for="slide in {{ json_encode($sliders->toArray()) }}"
+       :style="{backgroundImage: 'url(storage/sliders/'+ slide.image +')'}"
+  ></div>
+</carousel>
 
   <!-- Vision/Mission
   ================================================== -->
   <section id="vision">
-    <div id="carousel-example-generic" class="carousel slide @if(Auth::check()) with-admin-bar @endif" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-      </ol>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active">
-          <div class="dark-overlay vision">
-            <div class="vision-border centered wow">
-              <h4>Design To Showcase</h4>
-              <h2>Photography</h2>
-              <h6>The need to capture the moment and freeze it for life.</h6>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="dark-overlay vision">
-            <div class="vision-border centered wow">
-              <h4>Capture The Moment</h4>
-              <h2>Photography</h2>
-              <h6>Quality photography that preserves treasured memories.</h6>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="dark-overlay vision">
-            <div class="vision-border centered wow">
-              <h4>Still-life Images</h4>
-              <h2>Photography</h2>
-              <h6>Take alot of photos not war.</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+<!--    <div id="carousel-example-generic" class="carousel slide @if(Auth::check()) with-admin-bar @endif" data-ride="carousel">-->
+<!--      <!-- Indicators -->-->
+<!--      <ol class="carousel-indicators">-->
+<!--        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
+<!--        <li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
+<!--        <li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+<!--      </ol>-->
+<!---->
+<!--      <!-- Wrapper for slides -->-->
+<!--      <div class="carousel-inner">-->
+<!--        <div class="item active">-->
+<!--          <div class="dark-overlay vision">-->
+<!--            <div class="vision-border centered wow">-->
+<!--              <h4>Design To Showcase</h4>-->
+<!--              <h2>Photography</h2>-->
+<!--              <h6>The need to capture the moment and freeze it for life.</h6>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--          <div class="dark-overlay vision">-->
+<!--            <div class="vision-border centered wow">-->
+<!--              <h4>Capture The Moment</h4>-->
+<!--              <h2>Photography</h2>-->
+<!--              <h6>Quality photography that preserves treasured memories.</h6>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--          <div class="dark-overlay vision">-->
+<!--            <div class="vision-border centered wow">-->
+<!--              <h4>Still-life Images</h4>-->
+<!--              <h2>Photography</h2>-->
+<!--              <h6>Take alot of photos not war.</h6>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!---->
+<!--    </div>-->
     <!-- Portfolio Title -->
     <div class="light-overlay ptitle">
       <h2>Just Cool Things</h2>

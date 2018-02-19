@@ -1,0 +1,31 @@
+@import "variables";
+
+$dropSize: 240px;
+.cp-dropbox {
+  outline: 2px dashed $white;
+  outline-offset: -10px;
+  background: $grey;
+  padding: 1.6rem;
+  height: $dropSize;
+  width: 100%;
+  position: relative;
+  width: 100%;
+  border-radius: 0.4rem;
+  p {
+    position: absolute;
+    right: 0;
+    bottom: 1.6rem;
+    left: 0;
+    padding: 0 1.6rem;
+    font-size: 1.8em;
+    font-weight: 300;
+    text-align: center;
+    color: $white;
+  }
+}
+
+.input-file {
+  opacity: 0;
+  height: $dropSize;
+  width: 100%;
+}

@@ -11,14 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/woo', 'wooController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/angie', 'AngieController@index');
+
+Route::post('/sliders', 'SliderController@store');
+
+Route::delete('/sliders/{id}', 'SliderController@delete');
+
+Route::post('/sliders/reorder', 'SliderController@update');
+
+Route::post('/categories', 'CategoriesController@store');
+Route::get('/categories', 'CategoriesController@index');

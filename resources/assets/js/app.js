@@ -1,3 +1,6 @@
+import AppInit from './components/AppInit'
+import store from './store'
+import { mapGetters, mapActions } from 'vuex'
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -16,8 +19,38 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('modal-component', require('./components/Modal.vue'))
+Vue.component('modal', require('./components/Modal.vue'))
+Vue.component('carousel', require('./components/Carousel.vue'))
+Vue.component('image-form', require('./components/ImageForm.vue'))
+Vue.component('app-init', require('./components/AppInit'))
+Vue.component('category-form', require('./components/CategoryForm.vue'))
 
 const app = new Vue({
-    el: '#app'
+  el: '#app',
+  data: {
+    pageScrollPosition: 0,
+    currentModal: ''
+  },
+  store,
+  components: { AppInit },
+  computed: {
+    ...mapGetters(['sliders', 'categories']),
+    navShrinkClass() {
+     return this.pageScrollPosition > 200
+    }
+  },
+  methods: {
+    ...mapActions(['fetchAllCategories']),
+    logout() {
+      document.getElementById('logout-form').submit()
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', () => {
+      this.pageScrollPosition = window.scrollY
+    })
+
+    this.fetchAllCategories()
+
+  }
 });

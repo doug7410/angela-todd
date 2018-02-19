@@ -1,13 +1,71 @@
+.slider-list {
+  list-style: none;
+  text-align: left;
+}
+
+.slider-list .slider-list__item {
+  display: inline-block;
+  padding: 3px;
+  margin: 3px;
+  border: solid 1px #ccc;
+  width: 180px;
+  height: 180px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.slider-list .slider-list__item .delete {
+  font-size: 18px;
+  display: inline-block;
+  float: right;
+  margin: 3px;
+  cursor: pointer;
+}
+
+.navbar-nav {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.cp-dropbox {
+  outline: 2px dashed #ffffff;
+  outline-offset: -10px;
+  background: #cccccc;
+  padding: 1.6rem;
+  height: 240px;
+  width: 100%;
+  position: relative;
+  width: 100%;
+  border-radius: 0.4rem;
+}
+
+.cp-dropbox p {
+  position: absolute;
+  right: 0;
+  bottom: 1.6rem;
+  left: 0;
+  padding: 0 1.6rem;
+  font-size: 1.8em;
+  font-weight: 300;
+  text-align: center;
+  color: #ffffff;
+}
+
+.input-file {
+  opacity: 0;
+  height: 240px;
+  width: 100%;
+}
+
 .admin-bar {
-  padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 40px;
+  height: 23px;
   z-index: 9999;
   background-color: #2a88bd;
+  opacity: 0.6;
 }
 
 .admin-bar ul li {
@@ -24,9 +82,5 @@
 
 .admin-bar ul li:last-child::after {
   content: "";
-}
-
-.with-admin-bar {
-  top: 40px;
 }
 

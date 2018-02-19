@@ -1,0 +1,18 @@
+.btn-admin {
+  color: #FFFFFF;
+  background-color: #000000;
+  border-color: rgba(255, 186, 0, 0);
+  border-radius: 0px;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: normal;
+}
+.btn-admin:hover,
+.btn-admin:focus,
+.btn-admin.active,
+.open > .dropdown-toggle.btn-admin {
+  color: #fff;
+  background-color: #FFBE00;
+  border-color: #FFD000;
+}
