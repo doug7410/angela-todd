@@ -14633,24 +14633,33 @@ section#contact .text-danger {
   border-color: #FFD000;
 }
 
-.portfolio-categories-admin {
+.portfolio-categories__nav {
   min-height: 500px;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   border-right: 1px solid rgba(34, 34, 34, 0.67);
 }
 
-.portfolio-categories-admin h4 {
+.portfolio-categories__nav h4 {
   margin-bottom: 1.5rem;
 }
 
-.portfolio-categories-admin ul {
+.portfolio-categories__nav ul {
   text-align: left;
   list-style: none;
   font-size: 1.5rem;
   padding: .2rem;
 }
 
-.portfolio-categories-admin ul li {
+.portfolio-categories__nav ul li {
   padding: .5rem;
+}
+
+.portfolio-category__edit {
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.portfolio-category__edit h4 {
+  margin-bottom: 2rem;
 }
 

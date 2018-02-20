@@ -1,5 +1,5 @@
 import AppInit from './components/AppInit'
-import store from './store'
+import store from './store/index'
 import { mapGetters, mapActions } from 'vuex'
 
 /**
@@ -21,7 +21,8 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('modal', require('./components/Modal.vue'))
 Vue.component('carousel', require('./components/Carousel.vue'))
-Vue.component('image-form', require('./components/ImageForm.vue'))
+Vue.component('carousel-image-form', require('./components/CarouselImageForm.vue'))
+Vue.component('portfolio-image-form', require('./components/PortfolioImageForm.vue'))
 Vue.component('app-init', require('./components/AppInit'))
 Vue.component('category-form', require('./components/CategoryForm.vue'))
 
@@ -34,13 +35,20 @@ const app = new Vue({
   store,
   components: { AppInit },
   computed: {
-    ...mapGetters(['sliders', 'categories']),
+    ...mapGetters([
+      'sliders',
+      'categories',
+      'currentCategory',
+    ]),
     navShrinkClass() {
      return this.pageScrollPosition > 200
     }
   },
   methods: {
-    ...mapActions(['fetchAllCategories']),
+    ...mapActions([
+      'fetchAllCategories',
+      'setCurrentCategoryId'
+    ]),
     logout() {
       document.getElementById('logout-form').submit()
     }

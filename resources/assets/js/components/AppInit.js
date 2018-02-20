@@ -6,10 +6,11 @@ export default {
     sliders: Array
   },
   methods: {
-    ...mapActions(['setSliders'])
+    ...mapActions(['setSliders', 'fetchAllCategories'])
   },
   created() {
     this.setSliders(this.sliders)
+    this.fetchAllCategories()
   },
   render() {
     return

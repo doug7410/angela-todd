@@ -4,7 +4,7 @@
       <li v-for="(image, index) in images"
           :key="index"
           class="slider-list__item column"
-          :style="{backgroundImage: `url('storage/sliders/${image.image}')`}"
+          :style="{backgroundImage: `url('storage/category_images/${image.image}')`}"
       >
         <span class="delete" @click="deleteImage(image.id)">X</span>
         {{ image.name }}
@@ -28,17 +28,17 @@
   export default {
     name: 'image-form',
     props: {
-      images: Array
+      images: Array,
+      resourceUrl: String,
+      categoryId: Number
     },
     methods: {
-      ...mapActions(['addSlider', 'removeSlider', 'updateOrder']),
+      ...mapActions(['addCategoryImages', 'removeSlider', 'updateOrder']),
       uploadImage: function(event) {
         const formData = new FormData();
         formData.append('image', event.target.files[0]);
-
-        axios.post('/sliders', formData).then((response) => {
-          this.addSlider(response.data)
-        }).catch(e => console.log(e))
+        formData.append('category_id', this.categoryId)
+        this.addCategoryImages(formData)
       },
 
       deleteImage: function(id) {

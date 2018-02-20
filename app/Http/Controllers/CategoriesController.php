@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 class CategoriesController extends Controller
 {
     public function index() {
-        return Category::all();
+        return Category::with('images')->get();
     }
 
     public function store(Request $request) {
         Category::create($request->all());
-        return response()->json(Category::all(), 200);
+        return response()->json(Category::with('images')->get(), 200);
     }
 }

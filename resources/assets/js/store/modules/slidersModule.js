@@ -1,19 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import axios from 'axios'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default {
   state: {
-    sliders: [],
-    categories: [],
-    currentModal: ''
+    sliders: []
   },
 
   getters: {
     sliders: (state) => state.sliders,
-    categories: (state) => state.categories,
   },
 
   actions: {
@@ -30,14 +21,6 @@ export default new Vuex.Store({
       axios.post('/sliders/reorder', sliders).then(() => {
         commit('UPDATE_ORDER', sliders)
       }).catch(error => console.log(error))
-    },
-    fetchAllCategories({commit}) {
-      axios.get('/categories').then(response => {
-        commit('SET_CATEGORIES', response.data)
-      })
-    },
-    setCategories({commit}, categories) {
-      commit('SET_CATEGORIES', categories)
     }
   },
 
@@ -54,13 +37,6 @@ export default new Vuex.Store({
     },
     UPDATE_ORDER (state, sliders) {
       state.sliders = sliders
-    },
-    UPDATE_CURRENT_MODAL (state, modalName) {
-      state.currentModal = modalName
-    },
-    SET_CATEGORIES (state, categories) {
-      state.categories = categories
     }
   }
-
-})
+}

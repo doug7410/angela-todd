@@ -1,6 +1,6 @@
 @import "buttons";
 
-.portfolio-categories-admin {
+.portfolio-categories__nav {
   min-height: 500px;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 
@@ -20,4 +20,13 @@
   }
 
   border-right: 1px solid rgba(34, 34, 34, 0.67);
+}
+
+.portfolio-category__edit {
+  text-align: left;
+  padding-left: 2rem;
+
+  h4 {
+    margin-bottom: 2rem;
+  }
 }

@@ -26,4 +26,5 @@ Route::delete('/sliders/{id}', 'SliderController@delete');
 Route::post('/sliders/reorder', 'SliderController@update');
 
 Route::post('/categories', 'CategoriesController@store');
+Route::post('/category/images', 'CategoryImagesController@store');
 Route::get('/categories', 'CategoriesController@index');
